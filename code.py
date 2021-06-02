@@ -11,11 +11,11 @@ class Player():
         self.velocity = 2
         self.color = color
 
-#this function will draw any object
+#continuously executes the line inside the program is stopped or noloop is called 
     def draw(self, g):
         pygame.draw.rect(g, self.color ,(self.x, self.y, self.width, self.height), 0)
 
-#this function is used to move an object
+#for moving an object
     def move(self, dirn):
         """
         :param dirn: 0 - 3 (right, left, up, down)
@@ -34,7 +34,7 @@ class Player():
 
 class Game:
 
-#initializing any object
+#initializing the attributes of the class
     def __init__(self, w, h):
         self.net = Network()
         self.width = w
@@ -43,7 +43,7 @@ class Game:
         self.player2 = Player(100,100)
         self.canvas = Canvas(self.width, self.height, "Testing...")
 
-#funtion to run an object
+#funtion to run the program
     def run(self):
         clock = pygame.time.Clock()
         run = True
@@ -97,7 +97,7 @@ class Game:
 
     @staticmethod
 
-#spliting function
+#extracting number from the game that is not usually visible to the player
     def parse_data(data):
         try:
             d = data.split(":")[1].split(",")
@@ -116,11 +116,11 @@ class Canvas:
 
     @staticmethod
 
-#function to update any item/object
+#check positions, conditions, adjusting, or ends the game
     def update():
         pygame.display.update()
 
-#to draw text
+#to make objects and shows on screen
     def draw_text(self, text, size, x, y):
         pygame.font.init()
         font = pygame.font.SysFont("comicsans", size)
@@ -128,10 +128,10 @@ class Canvas:
 
         self.screen.draw(render, (x,y))
 
-#to get canvas
+#to draw graphics directly on the page
     def get_canvas(self):
         return self.screen
 
-#show background
+#sets the color used for the background
     def draw_background(self):
         self.screen.fill((255,255,255))
