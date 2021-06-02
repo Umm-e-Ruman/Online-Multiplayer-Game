@@ -11,9 +11,11 @@ class Player():
         self.velocity = 2
         self.color = color
 
+#this function will draw any object
     def draw(self, g):
         pygame.draw.rect(g, self.color ,(self.x, self.y, self.width, self.height), 0)
 
+#this function is used to move an object
     def move(self, dirn):
         """
         :param dirn: 0 - 3 (right, left, up, down)
@@ -32,6 +34,7 @@ class Player():
 
 class Game:
 
+#initializing any object
     def __init__(self, w, h):
         self.net = Network()
         self.width = w
@@ -40,6 +43,7 @@ class Game:
         self.player2 = Player(100,100)
         self.canvas = Canvas(self.width, self.height, "Testing...")
 
+#funtion to run an object
     def run(self):
         clock = pygame.time.Clock()
         run = True
@@ -92,6 +96,8 @@ class Game:
         return reply
 
     @staticmethod
+
+#spliting function
     def parse_data(data):
         try:
             d = data.split(":")[1].split(",")
@@ -109,9 +115,12 @@ class Canvas:
         pygame.display.set_caption(name)
 
     @staticmethod
+
+#function to update any item/object
     def update():
         pygame.display.update()
 
+#to draw text
     def draw_text(self, text, size, x, y):
         pygame.font.init()
         font = pygame.font.SysFont("comicsans", size)
@@ -119,8 +128,10 @@ class Canvas:
 
         self.screen.draw(render, (x,y))
 
+#to get canvas
     def get_canvas(self):
         return self.screen
 
+#show background
     def draw_background(self):
         self.screen.fill((255,255,255))
